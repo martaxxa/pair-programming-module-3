@@ -1,47 +1,57 @@
 import './styles/App.scss'
 
+import {useState} from 'react';
+
 function App() {
+    const [name, setName] = useState(''); 
+    const handleInputName = (ev) => {
+      setName (ev.target.value)
+      console.log (name);
+    }
   return (
-    <body class="page">
-    <header>
-      <h1>¡Cuidado con Grogu!</h1>
-    </header>
-    <main class="page">
-      <section class="board">
-        <div class="cell"><div class="grogu">👣</div></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-      </section>
+    <div className="page">
+      <header>
+        <h1>¡Cuidado con Grogu {name}! </h1>
+      </header>
+      <main className="page">
+        <form > Tu nombre
+          <input type="text" name= "nombre" id= "nombre" onInput={handleInputName}/>
+        </form>
+        <section className="board">
+          <div className="cell"><div class="grogu">👣</div></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+        </section>
 
-      <section>
-        <button class="dice">Lanzar Dado</button>
-        <div class="game-status">En curso</div>
-      </section>
+        <section>
+          <button className="dice">Lanzar Dado</button>
+          <div className="game-status">En curso</div>
+        </section>
 
-      <section class="goods-container">
-        <div class="goods-item">🍪</div>
-        <div class="goods-item">🍪</div>
-        <div class="goods-item">🍪</div>
-      </section>
-      <section class="goods-container">
-        <div class="goods-item">🥚</div>
-        <div class="goods-item">🥚</div>
-        <div class="goods-item">🥚</div>
-      </section>
-      <section class="goods-container">
-        <div class="goods-item">🐸</div>
-        <div class="goods-item">🐸</div>
-        <div class="goods-item">🐸</div>
-      </section>
-      <section>
-        <button class="restart-button">Reiniciar Juego</button>
-      </section>
-    </main>
-  </body>
+        <section className="goods-container">
+          <div className="goods-item">🍪</div>
+          <div className="goods-item">🍪</div>
+          <div className="goods-item">🍪</div>
+        </section>
+        <section className="goods-container">
+          <div className="goods-item">🥚</div>
+          <div className="goods-item">🥚</div>
+          <div className="goods-item">🥚</div>
+        </section>
+        <section className="goods-container">
+          <div className="goods-item">🐸</div>
+          <div className="goods-item">🐸</div>
+          <div className="goods-item">🐸</div>
+        </section>
+        <section>
+          <button className="restart-button">Reiniciar Juego</button>
+        </section>
+      </main>
+    </div>
   )
 }
 

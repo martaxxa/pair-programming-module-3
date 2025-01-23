@@ -3,10 +3,24 @@ import './styles/App.scss'
 import {useState} from 'react';
 
 function App() {
+  //selectores de contenido 
     const [name, setName] = useState(''); 
+    const [dice, setDice] = useState(); 
+  //funciones de interacción
+
     const handleInputName = (ev) => {
       setName (ev.target.value)
       console.log (name);
+    }
+    
+    console.log(dice); 
+
+    const handleInputDice = (ev) => {
+      const numeroAleatorio = Math.floor(Math.random() * 4) + 1; 
+      setDice(numeroAleatorio);
+      if ( dice === 1 &&2 &&3) {
+
+      }
     }
   return (
     <div className="page">
@@ -28,7 +42,7 @@ function App() {
         </section>
 
         <section>
-          <button className="dice">Lanzar Dado</button>
+          <button className="dice" onClick={handleInputDice}>Lanzar Dado</button>
           <div className="game-status">En curso</div>
         </section>
 

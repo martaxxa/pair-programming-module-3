@@ -1,18 +1,15 @@
-import './styles/App.scss'
+import '../styles/App.scss'
 
 import {useState} from 'react';
 
+import Header from './Header';
+import Footer from './Footer';
+
+
 function App() {
   //selectores de contenido 
-    const [name, setName] = useState(''); 
     const [dice, setDice] = useState(); 
   //funciones de interacción
-
-    const handleInputName = (ev) => {
-      setName (ev.target.value)
-      console.log (name);
-    }
-    
     console.log(dice); 
 
     const handleInputDice = (ev) => {
@@ -24,13 +21,8 @@ function App() {
     }
   return (
     <div className="page">
-      <header>
-        <h1>¡Cuidado con Grogu {name}! </h1>
-      </header>
+      <Header></Header>
       <main className="page">
-        <form > Tu nombre
-          <input type="text" name= "nombre" id= "nombre" onInput={handleInputName}/>
-        </form>
         <section className="board">
           <div className="cell"><div class="grogu">👣</div></div>
           <div className="cell"></div>
@@ -65,6 +57,7 @@ function App() {
           <button className="restart-button">Reiniciar Juego</button>
         </section>
       </main>
+      <Footer></Footer>
     </div>
   )
 }
